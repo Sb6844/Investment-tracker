@@ -1,14 +1,11 @@
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from 'react-router-dom';
 import { login } from "../actions/auth"
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 
 
 const Login = (props) => {
-    const form = useRef();
-    const checkBtn = useRef();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -25,6 +22,7 @@ const Login = (props) => {
         const password = e.target.value;
         setPassword(password);
     }
+
     return (
     <div>
         <Formik initialValues = {{email: '', password: ''}}

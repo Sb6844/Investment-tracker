@@ -2,15 +2,13 @@ import React, { useState, useEffect } from "react";
 import UserService from "../services/user.service";
 import { clearMessage } from "../actions/message";
 import { useLocation  } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 
 
 const Home = () => {
     const [content, setcontent] = useState("");
 
     const dispatch = useDispatch();
-
-
     const location = useLocation();
     useEffect(() => {
     dispatch(clearMessage());
@@ -30,8 +28,7 @@ const Home = () => {
     return (
         <div className="container">
             <header className="jumbotron">
-                <p>HOME PAGE!</p>
-            
+                <h1>Welcome to Scott's website</h1>
             </header>
         </div>
     )

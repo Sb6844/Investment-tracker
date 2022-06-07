@@ -82,22 +82,22 @@ function validatePassword(value) {
                         dirty }) => (
                         <Form>
                             <div className="row">
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <Field name = "email" placeholder="Email" validate={validateEmail} onKeyUp={onChangeEmail}></Field>
                                     {errors.email && touched.email && <div>{errors.email}</div>}
                                     </div>
                                 
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <Field name ="username" placeholder="Username" validate={validateUsername} onKeyUp={onChangeUsername}></Field>
                                     {errors.username && touched.username && <div>{errors.username}</div>}
                                     </div>
                             
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <Field name="password" placeholder="Password" validate={validatePassword} onKeyUp={onChangePassword}></Field>
                                     {errors.password && touched.password && <div>{errors.password}</div>}
                                     </div>
                                 
-                                    <div class="col-sm">
+                                    <div className="col-sm">
                                     <button type="submit" disabled={isSubmitting || !isValid || !dirty}>Submit</button>
                                     </div>
                             </div>
