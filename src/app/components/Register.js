@@ -16,14 +16,10 @@ const Register = () => {
 
 
 
-
-
-
-
 function validateEmail(value) {
     let error;
     if(!value) {
-        error = 'Required';
+        error = 'Email Required';
     } else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
         error = 'Invalid email address';
     }
@@ -34,7 +30,7 @@ function validateUsername(value) {
     let error;
     if(!value)
     {
-        error = 'Required';
+        error = 'Username Required';
     }
     return error;
 }
@@ -42,11 +38,10 @@ function validatePassword(value) {
     let error;
     if(!value)
     {
-        error = 'Required';
+        error = 'Password Required';
     }
     return error;
 }
-
 
     const onChangeUsername = (e) => {
         const username = e.target.value;
@@ -61,19 +56,33 @@ function validatePassword(value) {
         setPassword(password);
     }
 
+
+
+    const containerStyle = {
+        width: '100%',
+        padding: '10px',
+        border: '5px solid gray'
+    }
+
+    const errorMsg = {
+        color: 'red'
+    }
+
     return (
         <div>
-            <div className="container">
+            <div className="container" style={containerStyle}>
+            <h1>Register!</h1>
                 <Formik
                 initialValues={{username: '', email: '', password: '' }}
                 onSubmit={values => {
-                    setSuccessful(false);
-                        dispatch(register(username, email, password)).then(() =>
-                        {
-                            setSuccessful(true);
-                        }).catch(() => {
-                            setSuccessful(false);
-                        });
+                    console.log(values);
+                        // setSuccessful(false);
+                        // dispatch(register(username, email, password)).then(() =>
+                        // {
+                        //     setSuccessful(true);
+                        // }).catch(() => {
+                        //     setSuccessful(false);
+                        // });
                 }}>
                     {({ errors,
                         touched,
@@ -84,17 +93,17 @@ function validatePassword(value) {
                             <div className="row">
                                     <div className="col-sm">
                                     <Field name = "email" placeholder="Email" validate={validateEmail} onKeyUp={onChangeEmail}></Field>
-                                    {errors.email && touched.email && <div>{errors.email}</div>}
+                                    {errors.email && touched.email && <div style={errorMsg}>{errors.email}</div>}
                                     </div>
                                 
                                     <div className="col-sm">
                                     <Field name ="username" placeholder="Username" validate={validateUsername} onKeyUp={onChangeUsername}></Field>
-                                    {errors.username && touched.username && <div>{errors.username}</div>}
+                                    {errors.username && touched.username && <div style={errorMsg}>{errors.username}</div>}
                                     </div>
                             
                                     <div className="col-sm">
                                     <Field name="password" placeholder="Password" validate={validatePassword} onKeyUp={onChangePassword}></Field>
-                                    {errors.password && touched.password && <div>{errors.password}</div>}
+                                    {errors.password && touched.password && <div style={errorMsg}>{errors.password}</div>}
                                     </div>
                                 
                                     <div className="col-sm">

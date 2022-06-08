@@ -73,7 +73,7 @@ return (
             <Routes>
               <Route exact path ="/" element = { <HomeComponent/>}/>
               <Route exact path ="/home" element = { <HomeComponent/>}/>
-              <Route exact path = "/login" element ={<LoginComponent/>}/>
+              <Route exact path = "/login" element ={<LoginComponent showRegisterLink = {false}/>}/>
               <Route exact path = "/register" element = {<RegisterComponent/>}/>
               <Route exact path = "/profile" element ={<ProfileComponent/>}/>
             </Routes>
